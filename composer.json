@@ -14,14 +14,9 @@
         "symfony/symfony": "~2.3"
     },
     "autoload" : {
-        "psr-4" : {
+        "psr-0" : {
             "Smallable\\Logistic\\MorinBundle\\" : ""
         }
     },
-    "target-dir" : "Smallable/Logistic/MorinBundle",
-    "extra" : {
-    "branch-alias" : {
-            "dev-master" : "master"
-        }
-    }
+    "target-dir" : "Smallable/Logistic/MorinBundle"
 }
