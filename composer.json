@@ -18,5 +18,5 @@
             "Smallable\\Logistic\\MorinBundle\\" : ""
         }
     },
-    "target-dir" : "chekib/Logistic/MorinBundle"
+    "target-dir" : "Smallable/MorinBundle"
 }
