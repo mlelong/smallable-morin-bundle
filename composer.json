@@ -15,7 +15,7 @@
     },
     "autoload" : {
         "psr-4" : {
-            "Smallable\\Logistic\\MorinBundle\\" : ""
+            "Smallable\\Logistics\\MorinBundle\\" : ""
         }
     },
     "target-dir" : "Smallable/MorinBundle"
