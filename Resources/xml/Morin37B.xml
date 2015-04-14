@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<file>
+   <type>raw</type>
+   <interfaceName>37B</interfaceName>
+   <line>
+      <field name="D1">
+          <name>Type Enregistrement</name>
+          <length>1</length>
+          <position>1</position>
+          <info>D</info>
+          <defaultValue>D</defaultValue>
+      </field>
+      <field name="D2">
+          <name>No Commande</name>
+          <length>10</length>
+          <position>2</position>
+          <info>SExxxxxx</info>
+          <prefix>SE</prefix>
+          <attribute>order_number</attribute>
+      </field>
+      <field name="D3">
+          <name>Nom Destinataire</name>
+          <length>30</length>
+          <position>12</position>
+          <info>NOM Prénom</info>
+          <attribute>full_customer_name</attribute>
+      </field>
+      <field name="D4">
+          <name>Adresse 1 Destinataire</name>
+          <length>30</length>
+          <position>42</position>
+          <info>Adresse 1</info>
+          <attribute>address1</attribute>
+      </field>
+      <field name="D5">
+          <name>Adresse 2 Destinataire</name>
+          <length>30</length>
+          <position>72</position>
+          <info>Adresse 2</info>
+          <attribute>address2</attribute>
+      </field>
+      <field name="D6">
+          <name>Code Postal</name>
+          <length>6</length>
+          <position>102</position>
+          <info>CP</info>
+          <attribute>postal_code</attribute>
+      </field>
+      <field name="D7">
+          <name>Ville</name>
+          <length>24</length>
+          <position>108</position>
+          <info>Ville</info>
+          <attribute>city</attribute>
+      </field>
+      <field name="D9">
+          <name>Type Opération</name>
+          <length>2</length>
+          <position>133</position>
+          <info>SO</info>
+          <defaultValue>SO</defaultValue>
+      </field>
+       <field name="D10">
+           <name>Type Prélevement</name>
+           <length>2</length>
+           <position>135</position>
+           <info>PH si commande shoot</info>
+           <attribute>type_prelevement</attribute>
+       </field>
+      <field name="D12">
+          <name>Date de Réception</name>
+          <length>8</length>
+          <position>139</position>
+          <info>Date Commande AAAAMMJJ</info>
+          <attribute>order_date_add</attribute>
+      </field>
+      <field name="D13">
+          <name>Heure de Réception</name>
+          <length>6</length>
+          <position>147</position>
+          <info>Heure Commande HHMMSS</info>
+          <attribute>order_hour_add</attribute>
+      </field>
+      <field name="D15">
+          <name>Code Pays </name>
+          <length>3</length>
+          <position>155</position>
+          <info>FR pour France…</info>
+          <attribute>l_iso_code</attribute>
+      </field>
+      <field name="D16">
+          <name>Identifiant du message</name>
+          <length>20</length>
+          <position>158</position>
+          <info>zone Lg, Code enseigne 2, filler 18</info>
+          <attribute>message_identification</attribute>
+      </field>
+      <field name="D17">
+          <name>Raison Sociale Destinataire</name>
+          <length>30</length>
+          <position>178</position>
+          <info>Raison Sociale</info>
+          <attribute>social_reason</attribute>
+      </field>
+      <field name="D18">
+          <name>Téléphone</name>
+          <length>12</length>
+          <position>208</position>
+          <info>Téléphone</info>
+          <attribute>phone</attribute>
+      </field>
+      <field name="D20">
+          <name>Code agence</name>
+          <length>3</length>
+          <position>233</position>
+          <info>1</info>
+          <defaultValue>001</defaultValue>
+      </field>
+      <field name="D24">
+          <name>Flag de MAJ</name>
+          <length>1</length>
+          <position>253</position>
+          <info>Vide si nouvelle commandeS si rétractation => Annulation</info>
+          <attribute>order_state</attribute>
+      </field>
+  </line>
+   <line>
+      <field name="S1">
+          <name>Type Enregistrement</name>
+          <length>1</length>
+          <position>1</position>
+          <info>S</info>
+          <defaultValue>S</defaultValue>
+      </field>
+      <field name="S2">
+          <name>No Commande</name>
+          <length>10</length>
+          <position>2</position>
+          <info>SExxxxxx = D2</info>
+          <equal_to>line:0-D2</equal_to>
+      </field>
+      <field name="S3">
+          <name>Date de Sortie</name>
+          <length>8</length>
+          <position>12</position>
+          <info>AAAAMMJJ = D12</info>
+          <equal_to>line:0-D12</equal_to>
+      </field>
+      <field name="S4">
+          <name>Code Article</name>
+          <length>15</length>
+          <position>20</position>
+          <info>AUTO_PREFIXxxxxxx</info>
+          <prefix>AUTO_PREFIX</prefix>
+          <attribute>product_reference</attribute>
+      </field>
+      <field name="S7">
+          <name>Affectation Marchandise</name>
+          <length>2</length>
+          <position>55</position>
+          <info>BK si retour fournisseur / soldeurVide sinon</info>
+          <attribute>product_affectation</attribute>
+          <keep_warning>false</keep_warning>
+      </field>
+      <field name="S8">
+          <name>Quantité Unitaire</name>
+          <length>6</length>
+          <position>57</position>
+          <info>Nb pièces à expédier</info>
+          <attribute>product_quantity</attribute>
+      </field>
+      <field name="S10">
+          <name>Code Client</name>
+          <length>4</length>
+          <position>72</position>
+          <info>SMAL</info>
+          <defaultValue>SMAL</defaultValue>
+      </field>
+      <field name="S11">
+          <name>Code Agence</name>
+          <length>3</length>
+          <position>76</position>
+          <info>1</info>
+          <defaultValue>001</defaultValue>
+      </field>
+      <field name="S14">
+          <name>Code Transporteur</name>
+          <length>4</length>
+          <position>81</position>
+          <info>Cf. Fichier Excel</info>
+          <attribute>shipping_mode</attribute>
+      </field>
+      <field name="S15">
+          <name>No Ligne</name>
+          <length>5</length>
+          <position>85</position>
+          <info>Incrément par commande 00001=>99999</info>
+          <attribute>line_number</attribute>
+      </field>
+      <field name="S16">
+          <name>Référence Commande Client/ Référence Commande Ouverte</name>
+          <length>20</length>
+          <position>90</position>
+          <info>N° Commande échangé avec l’internaute par mail (affiché en entête de BL)</info>
+          <attribute>original_order_number</attribute>
+      </field>
+      <field name="S32">
+          <name>1er   Code Asilage</name>
+          <length>15</length>
+          <position>188</position>
+          <info>Ref asilage personnalisé 1</info>
+          <attribute>asilage_1</attribute>
+      </field>
+      <field name="S33">
+          <name>2ème Code Asilage </name>
+          <length>15</length>
+          <position>203</position>
+          <info>Ref asilage personnalisé 2</info>
+          <attribute>asilage_2</attribute>
+      </field>
+      <field name="S34">
+          <name>3ème Code Asilage</name>
+          <length>15</length>
+          <position>218</position>
+          <info>Ref asilage personnalisé 3</info>
+          <attribute>asilage_3</attribute>
+      </field>
+      <field name="S35">
+          <name>Code emballage cadeau</name>
+          <length>2</length>
+          <position>233</position>
+          <info>A voir</info>
+          <attribute>gift_code</attribute>
+          <keep_warning>false</keep_warning>
+      </field>
+  </line>
+    <line>
+        <field name="EI1">
+            <name>Type Enregistrement</name>
+            <length>1</length>
+            <position>1</position>
+            <defaultValue>E</defaultValue>
+        </field>
+        <field name="EI2">
+            <name>No Commande</name>
+            <length>10</length>
+            <position>2</position>
+            <equal_to>line:0-D2</equal_to>
+        </field>
+        <field name="EI3">
+            <name>Type Commentaire</name>
+            <length>1</length>
+            <position>12</position>
+        </field>
+        <field name="EI41">
+            <name>Commentaire</name>
+            <length>15</length>
+            <position>13</position>
+            <attribute>asilage_4</attribute>
+        </field>
+        <field name="EI42">
+            <name>Code Article</name>
+            <length>15</length>
+            <position>28</position>
+            <attribute>asilage_5</attribute>
+        </field>
+        <field name="EI43">
+            <name>Code Article</name>
+            <length>15</length>
+            <position>43</position>
+            <attribute>asilage_6</attribute>
+        </field>
+        <field name="EI5">
+            <name>Code Article</name>
+            <length>15</length>
+            <position>238</position>
+            <equal_to>line:1-S4</equal_to>
+        </field>
+    </line>
+   <line>
+      <field name="P1">
+          <name>Type Enregistrement</name>
+          <length>1</length>
+          <position>1</position>
+          <info>P</info>
+          <defaultValue>P</defaultValue>
+      </field>
+      <field name="P2">
+          <name>No Commande</name>
+          <length>10</length>
+          <position>2</position>
+          <info>#REF!</info>
+          <equal_to>line:0-D2</equal_to>
+      </field>
+      <field name="P3">
+          <name>Nom Acheteur</name>
+          <length>30</length>
+          <position>12</position>
+          <info>Nom facturé</info>
+          <attribute>lastname_invoice</attribute>
+      </field>
+      <field name="P4">
+          <name>Message personnalisé</name>
+          <length>212</length>
+          <position>42</position>
+          <info>Message saisie sur le site</info>
+          <attribute>gift_message</attribute>
+      </field>
+  </line>
+   <line>
+      <field name="A1">
+          <name>Type Enregistrement</name>
+          <length>1</length>
+          <position>1</position>
+          <info>A</info>
+          <defaultValue>A</defaultValue>
+      </field>
+      <field name="A2">
+          <name>No Commande</name>
+          <length>10</length>
+          <position>2</position>
+          <info>#REF!</info>
+          <equal_to>line:0-D2</equal_to>
+      </field>
+      <field name="A3">
+          <name>Code Destinataire</name>
+          <length>20</length>
+          <position>12</position>
+          <info>Nom Prénom</info>
+          <attribute>full_customer_name</attribute>
+      </field>
+  </line>
+</file>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<contents>
+    <file_type>xml</file_type>
+    <interface_type>TRACKING</interface_type>
+    <line num="0" return_position="255">
+        <field name="A1">
+            <name>No need for xml import, Need to review implementation</name>
+            <length>1</length>
+            <position>1</position>
+            <info></info>
+        </field>
+    </line>
+</contents>

@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<contents>
+   <file_type>xml</file_type>
+   <interface_type>SMALL</interface_type>
+   <line num="0" return_position="255">
+      <field name="D2">
+          <name>No Commande</name>
+          <length>10</length>
+          <info>SExxxxxx</info>
+          <prefix>SE</prefix>
+          <attribute>order_number</attribute>
+      </field>
+      <field name="D3">
+          <name>Nom Destinataire</name>
+          <length>30</length>
+          <info>NOM Prénom</info>
+          <attribute>full_customer_name</attribute>
+      </field>
+      <field name="D4">
+          <name>Adresse 1 Destinataire</name>
+          <length>35</length>
+          <info>Adresse 1</info>
+          <attribute>address1</attribute>
+      </field>
+      <field name="D5">
+          <name>Adresse 2 Destinataire</name>
+          <length>35</length>
+          <info>Adresse 2</info>
+          <attribute>address2</attribute>
+      </field>
+      <field name="D6">
+          <name>Code Postal</name>
+          <length>10</length>
+          <info>CP</info>
+          <attribute>postal_code</attribute>
+      </field>
+      <field name="D7">
+          <name>Ville</name>
+          <length>35</length>
+          <info>Ville</info>
+          <attribute>city</attribute>
+      </field>
+      <field name="D9">
+          <name>Type Opération</name>
+          <length>2</length>
+          <info>SO</info>
+          <defaultValue>SO</defaultValue>
+          <attribute>operation_type</attribute>
+      </field>
+      <field name="D12">
+          <name>Date de Réception</name>
+          <length>8</length>
+          <info>Date Commande AAAAMMJJ</info>
+          <attribute>order_date_add</attribute>
+      </field>
+      <field name="D13">
+          <name>Heure de Réception</name>
+          <length>6</length>
+          <info>Heure Commande HHMMSS</info>
+          <attribute>order_hour_add</attribute>
+      </field>
+      <field name="D15">
+          <name>Code Pays </name>
+          <length>3</length>
+          <info>FR pour France…</info>
+          <attribute>l_iso_code</attribute>
+      </field>
+      <field name="D16">
+          <name>Identifiant du message</name>
+          <length>20</length>
+          <info>zone Lg, Code enseigne 2, filler 18</info>
+          <attribute>message_identifiant</attribute>
+      </field>
+      <field name="D17">
+          <name>Raison Sociale Destinataire</name>
+          <length>30</length>
+          <info>Raison Sociale</info>
+          <attribute>social_reason</attribute>
+      </field>
+      <field name="D18">
+          <name>Téléphone</name>
+          <length>50</length>
+          <attribute>phone</attribute>
+      </field>
+       <field name="D19">
+           <name>Téléphone portable</name>
+           <length>50</length>
+           <attribute>phone_mobile</attribute>
+       </field>
+      <field name="D20">
+          <name>Code agence</name>
+          <length>3</length>
+          <info>1</info>
+          <defaultValue>001</defaultValue>
+          <attribute>agency_code</attribute>
+      </field>
+      <field name="D24">
+          <name>Flag de MAJ</name>
+          <length>1</length>
+          <info>Vide si nouvelle commandeS si rétractation => Annulation</info>
+      </field>
+      <field name="S10">
+          <name>Code Client</name>
+          <length>9</length>
+          <info>SMAL</info>
+          <defaultValue>SMAL</defaultValue>
+          <attribute>customer_code</attribute>
+      </field>
+      <field name="S15">
+          <name>No Ligne</name>
+          <length>5</length>
+          <info>Incrément par commande 00001=>99999</info>
+          <attribute>line_number</attribute>
+      </field>
+      <field name="S16">
+          <name>Référence Commande Client/ Référence Commande Ouverte</name>
+          <length>20</length>
+          <info>N° Commande échangé avec l’internaute par mail (affiché en entête de BL)</info>
+          <attribute>original_order_number</attribute>
+      </field>
+      <field name="S32">
+          <name>1er   Code Asilage</name>
+          <length>15</length>
+          <info>Ref asilage personnalisé 1</info>
+          <attribute>asiliage_1</attribute>
+      </field>
+      <field name="S33">
+          <name>2ème Code Asilage </name>
+          <length>15</length>
+          <info>Ref asilage personnalisé 2</info>
+          <attribute>asiliage_2</attribute>
+      </field>
+      <field name="S34">
+          <name>3ème Code Asilage</name>
+          <length>15</length>
+          <info>Ref asilage personnalisé 3</info>
+          <attribute>asiliage_3</attribute>
+      </field>
+      <field name="S35">
+          <name>Code emballage cadeau</name>
+          <length>2</length>
+          <info>A voir</info>
+          <attribute>gift_code</attribute>
+      </field>
+      <field name="E3">
+          <name>Type Commentaire</name>
+          <length>1</length>
+          <defaultValue>A</defaultValue>
+          <attribute>comment_type</attribute>
+      </field>
+      <field name="E4">
+          <name>Commentaire</name>
+          <length>225</length>
+          <attribute>preparing_comment</attribute>
+      </field>
+      <field name="E5">
+          <name>Code Article</name>
+          <length>15</length>
+          <equal_to>line:1-S4</equal_to>
+      </field>
+        <field name="EI41">
+            <name>4eme code asilage</name>
+            <length>15</length>
+            <attribute>asilage_4</attribute>
+        </field>
+        <field name="EI142">
+            <name>5eme code asilage</name>
+            <length>15</length>
+            <attribute>asilage_5</attribute>
+        </field>
+        <field name="EI143">
+            <name>5eme code asilage</name>
+            <length>15</length>
+            <attribute>asilage_6</attribute>
+        </field>
+      <field name="P3">
+          <name>Nom Acheteur</name>
+          <length>30</length>
+          <attribute>buyer_name</attribute>
+      </field>
+      <field name="P4">
+          <name>Message personnalisé</name>
+          <length>212</length>
+          <info>Message saisie sur le site</info>
+          <attribute>personalized_message</attribute>
+      </field>
+       <field name="P5">
+           <name>Business name</name>
+           <length>15</length>
+           <info></info>
+           <attribute>company_name</attribute>
+           <defaultValue>SMALLABLE</defaultValue>
+       </field>
+       <field name="P6">
+           <name>Business name</name>
+           <length>15</length>
+           <attribute>enseigne_code</attribute>
+           <defaultValue>01</defaultValue>
+       </field>
+       <field name="P7">
+           <name>Etat Pays client</name>
+           <length>50</length>
+           <attribute>iso_code_state</attribute>
+       </field>
+       <field name="P8">
+           <name>Raison Social</name>
+           <length>35</length>
+           <attribute>corp_name</attribute>
+       </field>
+       <field name="P9">
+           <name>Nom Client</name>
+           <length>35</length>
+           <attribute>lastname</attribute>
+       </field>
+       <field name="P10">
+           <name>Prénom Client</name>
+           <length>35</length>
+           <attribute>firstname</attribute>
+       </field>
+       <field name="P11">
+           <name>Email Client</name>
+           <length>100</length>
+           <attribute>customer_email</attribute>
+       </field>
+       <field name="P12">
+           <name>Code Porte 1 (socol)</name>
+           <length>8</length>
+           <attribute>so_col_door_code</attribute>
+       </field>
+       <field name="P13">
+           <name>Code Porte 2 (socol)</name>
+           <length>8</length>
+           <attribute>so_col_door_code2</attribute>
+       </field>
+       <field name="P14">
+           <name>Code interphone (socol)</name>
+           <length>30</length>
+           <attribute>so_col_intercom_code</attribute>
+       </field>
+       <field name="P15">
+           <name>MR Name</name>
+           <length>50</length>
+           <attribute>mr_name</attribute>
+       </field>
+       <field name="P16">
+           <name>MR adr1</name>
+           <length>50</length>
+           <attribute>mr_address1</attribute>
+        </field>
+       <field name="P17">
+           <name>MR adr2</name>
+           <length>50</length>
+           <attribute>mr_address2</attribute>
+       </field>
+       <field name="P18">
+           <name>MR Zip</name>
+           <length>50</length>
+           <attribute>mr_zip</attribute>
+       </field>
+       <field name="P19">
+           <name>MR City</name>
+           <length>50</length>
+           <attribute>mr_city</attribute>
+       </field>
+       <field name="P20">
+           <name>MR Country</name>
+           <length>2</length>
+           <attribute>mr_country</attribute>
+       </field>
+       <field name="P21">
+           <name>MR ID</name>
+           <length>50</length>
+           <attribute>mr_id</attribute>
+       </field>
+       <field name="P21">
+           <name>MR inf1</name>
+           <length>50</length>
+           <attribute>mr_inf1</attribute>
+       </field>
+       <field name="P22">
+           <name>MR inf2</name>
+           <length>50</length>
+           <attribute>mr_inf2</attribute>
+       </field>
+       <field name="P23">
+           <name>MR inf3</name>
+           <length>50</length>
+           <attribute>mr_inf3</attribute>
+       </field>
+       <field name="P24">
+           <name>Prix commande</name>
+           <length>7</length>
+           <attribute>total_paid</attribute>
+       </field>
+       <field name="P25">
+           <name>Prix transporteur</name>
+           <length>7</length>
+           <attribute>shipping_price</attribute>
+           <defaultValue>0</defaultValue>
+       </field>
+       <field name="P26">
+           <name>Code iso TVA frais de port</name>
+           <length>7</length>
+           <attribute>shipping_iso_code_tva</attribute>
+           <defaultValue>0</defaultValue>
+       </field>
+       <field name="P27">
+           <name>Douane valeur</name>
+           <length>7</length>
+           <attribute>insurance</attribute>
+       </field>
+       <field name="P28">
+           <name>Devise Iso Code</name>
+           <length>7</length>
+           <attribute>currency_iso_code</attribute>
+           <defaultValue>EUR</defaultValue>
+       </field>
+       <field name="P29">
+           <name>Address prénom</name>
+           <length>35</length>
+           <attribute>dlv_firstname</attribute>
+       </field>
+
+       <field name="P30">
+           <name>Address nom</name>
+           <length>35</length>
+           <attribute>dlv_lastname</attribute>
+       </field>
+
+       <field name="P31">
+           <name>Address Company</name>
+           <length>35</length>
+           <attribute>dlv_corp_name</attribute>
+       </field>
+  </line>
+</contents>

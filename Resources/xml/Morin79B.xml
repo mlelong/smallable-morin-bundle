@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<file>
+
+    <type>raw</type>
+    <interfaceName>MORIN79B</interfaceName>
+    <length>255</length>
+
+    <line>
+        <field name="A1">
+            <name>Code Client</name>
+            <length>4</length>
+            <position>1</position>
+            <defaultValue>SMAL</defaultValue>
+        </field>
+        <field name="A2">
+            <name>Code Agence</name>
+            <length>3</length>
+            <position>5</position>
+            <defaultValue>001</defaultValue>
+        </field>
+        <field name="A3">
+            <name>Code Fournisseur</name>
+            <length>4</length>
+            <position>8</position>
+            <info>4 premières lettres frs (ss doublon) RET si retour</info>
+            <source>declinaison</source>
+            <source>product</source>
+            <source>supplier</source>
+            <source>name</source>
+        </field>
+        <field name="A4">
+            <name>No de Commande</name>
+            <length>10</length>
+            <position>20</position>
+            <info>Incrément</info>
+            <prefix>SF</prefix>
+            <source>supplyOrder</source>
+            <source>reference</source>
+        </field>
+        <field name="A5">
+            <name>lineNumber</name>
+            <length>3</length>
+            <position>30</position>
+            <info>Incrémenté de 001 à ZZZ</info>
+        </field>
+        <field name="A6">
+            <name>Code Article</name>
+            <length>15</length>
+            <position>33</position>
+            <source>declinaison</source>
+            <source>reference</source>
+            <type>sku</type>
+            <prefix>SM</prefix>
+        </field>
+        <field name="A8">
+            <name>Observation</name>
+            <length>30</length>
+            <position>52</position>
+            <info>Infos du fournisseur ou motif retour client</info>
+			<require>false</require>
+			<keep_warning>false</keep_warning>
+            <source>supplyOrder</source>
+            <source>reference</source>
+        </field>
+        <field name="A9">
+            <name>Date de Commande</name>
+            <length>8</length>
+            <position>82</position>
+            <info>AAAAMMJJ</info>
+            <type>date</type>
+            <source>supplyOrder</source>
+            <source>deliveryDate</source>
+        </field>
+        <field name="A10">
+            <name>Date Entrée en Stock Prévisio.</name>
+            <length>8</length>
+            <position>90</position>
+            <info>AAAAMMJJ</info>
+            <attribute>estimated_order_date</attribute>
+            <type>date</type>
+            <source>supplyOrder</source>
+            <source>deliveryDate</source>
+        </field>
+        <field name="A11">
+            <name>Quantité Unitaire Commandée</name>
+            <length>12</length>
+            <position>98</position>
+            <source>quantityExpected</source>
+            <type>integer</type>
+        </field>
+        <field name="A14">
+            <name>Affectation Marchandise</name>
+            <length>2</length>
+            <position>122</position>
+            <info>DI frs ou PR pour les retours</info>
+            <defaultValue>DI</defaultValue>
+            <attribute>morin_affectation</attribute>
+        </field>
+        <field name="A15">
+            <name>Numéro livraison fournisseur</name>
+            <length>20</length>
+            <position>124</position>
+            <info>ref commande fournisseur ou N° de retour</info>
+            <source>supplyOrder</source>
+            <source>reference</source>
+        </field>
+        <field name="A16">
+            <name>Type Opération</name>
+            <length>2</length>
+            <position>144</position>
+            <defaultValue>EF</defaultValue>
+        </field>
+        <field name="A17">
+            <name>Indice MAJ</name>
+            <length>1</length>
+            <position>146</position>
+            <info>R = Annule et Remplace Qté</info>
+            <attribute>update_indication</attribute>
+            <require>false</require>
+            <keep_warning>false</keep_warning>
+        </field>
+        <field name="A22">
+            <name>Code Trafic pour Spécif</name>
+            <length>10</length>
+            <position>172</position>
+            <info>MORINRDC</info>
+            <defaultValue>MORINRDC</defaultValue>
+        </field>
+        <field name="A23">
+            <name>Nom du Fournisseur</name>
+            <length>35</length>
+            <position>182</position>
+            <source>declinaison</source>
+            <source>product</source>
+            <source>manufacturer</source>
+        </field>
+        <field name="A24">
+            <name>Indicateur Suppression Fichier</name>
+            <length>1</length>
+            <position>217</position>
+            <info>T = Suppression Totale du Fichier</info>
+            <require>false</require>
+            <attribute>indicator</attribute>
+            <keep_warning>false</keep_warning>
+        </field>
+    </line>
+
+
+</file>

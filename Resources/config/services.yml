@@ -1,0 +1,15 @@
+parameters:
+    morin.37e.class: Smallable\Logistics\MorinBundle\Service\Morin37EService
+    morin.79b.class: Smallable\Logistics\MorinBundle\Service\Morin79BService
+    morin.37m.class: Smallable\Logistics\MorinBundle\Service\Morin37MService
+
+services:
+    morin.37e:
+        class: %morin.37e.class%
+        arguments: ["@service_container"]
+    morin.79b:
+        class: %morin.79b.class%
+        arguments: ["@service_container"]
+    morin.37m:
+        class: %morin.37m.class%
+        arguments: ["@service_container"]

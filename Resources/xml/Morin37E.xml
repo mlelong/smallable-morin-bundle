@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<file>
+    <type>raw</type>
+    <interfaceName>MORIN37E</interfaceName>
+    <length>255</length>
+
+    <line>
+        <field name="A1">
+            <info>Client prefix (Smallable => SM ) + product</info>
+            <name>Product reference</name>
+            <length>15</length>
+            <position>1</position>
+            <prefix>SM</prefix>
+            <source>reference</source>
+            <type>sku</type>
+        </field>
+        <field name="A2">
+
+            <info>Contains Supplier reference or builder (ex : Model COLOR SIZE)</info>
+            <name>Secondary product reference</name>
+            <length>10</length>
+            <position>16</position>
+            <require>false</require>
+            <source>Product</source>
+            <source>manufacturer</source>
+
+        </field>
+        <field name="A3">
+            <info>Supplier reference + Description + Mark</info>
+            <name>Designation</name>
+            <length>40</length>
+            <position>26</position>
+            <method>description_1</method>
+        </field>
+        <field name="A5">
+            <require>false</require>
+            <name>Assurance value</name>
+            <length>9</length>
+            <position>75</position>
+            <source>paht</source>
+            <require>false</require>
+            <numeric>true</numeric>
+            <align>right</align>
+        </field>
+        <field name="A6">
+            <name>Conditioning code unitary</name>
+            <length>3</length>
+            <position>84</position>
+            <defaultValue>PCE</defaultValue>
+        </field>
+        <field name="A7">
+            <name>Conditioning code distribution</name>
+            <length>3</length>
+            <position>87</position>
+            <defaultValue>CAR</defaultValue>
+        </field>
+        <field name="A8">
+            <name>Conditioning code storing</name>
+            <length>3</length>
+            <position>90</position>
+            <defaultValue>US</defaultValue>
+        </field>
+        <field name="A9">
+            <name>Conditioning code weight 1</name>
+            <length>3</length>
+            <position>93</position>
+            <defaultValue>KG</defaultValue>
+        </field>
+        <field name="A10">
+            <name>Conditioning code weight 2</name>
+            <length>3</length>
+            <position>96</position>
+            <defaultValue>M3</defaultValue>
+        </field>
+        <field name="A11">
+            <name>Quantity distribution</name>
+            <length>7</length>
+            <position>99</position>
+            <defaultValue>1</defaultValue>
+            <align>right</align>
+        </field>
+        <field name="A12">
+            <name>Quantity storing</name>
+            <length>7</length>
+            <position>106</position>
+            <defaultValue>1</defaultValue>
+            <align>right</align>
+        </field>
+        <field name="A13">
+            <name>Quantity weight 1</name>
+            <length>7</length>
+            <position>113</position>
+            <source>Product</source>
+            <source>weight</source>
+            <numeric>true</numeric>
+            <require>false</require>
+            <type>float</type>
+            <align>right</align>
+        </field>
+        <field name="A18">
+            <name>Entering parcel number series</name>
+            <length>1</length>
+            <position>150</position>
+            <defaultValue>N</defaultValue>
+        </field>
+        <field name="A19">
+            <name>Pre-Affection</name>
+            <length>1</length>
+            <position>151</position>
+            <defaultValue>O</defaultValue>
+        </field>
+        <field name="A27">
+            <name>Pre-Affection product, commodity type 1</name>
+            <length>2</length>
+            <position>172</position>
+            <require>false</require>
+            <defaultValue>99</defaultValue>
+        </field>
+        <field name="A28">
+            <name>Pre-Affection product, emplacement type 1</name>
+            <length>2</length>
+            <position>174</position>
+            <defaultValue>99</defaultValue>
+        </field>
+        <field name="A29">
+            <name>Pre-Affection product, commodity type 2</name>
+            <length>2</length>
+            <position>176</position>
+            <defaultValue>SM</defaultValue>
+        </field>
+        <field name="A30">
+            <info>Equal to A28</info>
+            <name>Pre-Affection product, emplacement type 2</name>
+            <length>2</length>
+            <position>178</position>
+            <defaultValue>99</defaultValue>
+        </field>
+        <field name="A34">
+            <info>Number N</info>
+            <name>Product type</name>
+            <length>1</length>
+            <position>186</position>
+            <defaultValue>N</defaultValue>
+        </field>
+        <field name="A48">
+            <info>C = Creation or M = Modification</info>
+            <name>Update indicator</name>
+            <length>1</length>
+            <position>216</position>
+            <attribute>update_indicator</attribute>
+            <method>updateIndicator</method>
+        </field>
+        <field name="A51">
+            <info>ABC Classes (Family product)</info>
+            <name>Update indicator</name>
+            <length>1</length>
+            <position>221</position>
+            <attribute>morin_family</attribute>
+            <require>false</require>
+            <keep_warning>false</keep_warning>
+        </field>
+        <field name="A52">
+            <info>Always 1</info>
+            <name>Unitary quantity</name>
+            <length>4</length>
+            <position>222</position>
+            <defaultValue>1</defaultValue>
+        </field>
+        <field name="A53">
+            <info>Family Product (ABC)</info>
+            <name>Product type</name>
+            <length>10</length>
+            <position>226</position>
+            <equal_to>line:0-A51</equal_to>
+            <require>false</require>
+            <keep_warning>false</keep_warning>
+        </field>
+        <field name="A62">
+            <name>Package Management</name>
+            <length>1</length>
+            <position>252</position>
+            <defaultValue>N</defaultValue>
+        </field>
+    </line>
+    <line num="1" return_position="255">
+        <field name="B1">
+            <info>Equal to A1</info>
+            <name>Reference Product</name>
+            <length>15</length>
+            <position>1</position>
+            <prefix>SM</prefix>
+            <source>reference</source>
+            <type>sku</type>
+        </field>
+        <field name="B2">
+            <name>Record type</name>
+            <length>10</length>
+            <position>16</position>
+            <defaultValue>ENR2</defaultValue>
+        </field>
+        <field name="B3">
+            <name>Height (cm x 100)</name>
+            <length>6</length>
+            <position>26</position>
+            <multiply>100</multiply>
+            <defaultValue>0</defaultValue>
+            <type>integer</type>
+            <attribute>height</attribute>
+            <numeric>true</numeric>
+            <align>right</align>
+        </field>
+        <field name="B4">
+            <name>Width (cm x 100)</name>
+            <length>6</length>
+            <position>32</position>
+            <multiply>100</multiply>
+            <type>integer</type>
+            <defaultValue>0</defaultValue>
+            <numeric>true</numeric>
+            <align>right</align>
+        </field>
+        <field name="B5">
+            <name>Length (cm x 100)</name>
+            <length>6</length>
+            <position>38</position>
+            <multiply>100</multiply>
+            <type>integer</type>
+            <defaultValue>0</defaultValue>
+            <numeric>true</numeric>
+            <align>right</align>
+        </field>
+        <field name="B6">
+            <name>EAN 1 code</name>
+            <length>15</length>
+            <info>Descendre SKU format Morin</info>
+            <position>44</position>
+            <source>reference</source>
+            <type>sku</type>
+        </field>
+        <field name="B7">
+            <name>EAN 2 code</name>
+            <length>15</length>
+            <info>Descendre SKU original si vide sa</info>
+            <position>59</position>
+            <source>reference</source>
+            <type>sku</type>
+        </field>
+        <field name="B8">
+            <name>EAN 3 code</name>
+            <length>15</length>
+            <info>Descendre EAN Fournisseur</info>
+            <position>74</position>
+            <method>ean</method>
+            <type>sku</type>
+        </field>
+        <field name="B10">
+            <name>Designation 2 (complementary to Designation)</name>
+            <length>40</length>
+            <position>104</position>
+            <method>description_2</method>
+        </field>
+        <field name="B11">
+            <name>Agency</name>
+            <length>3</length>
+            <position>144</position>
+            <defaultValue>001</defaultValue>
+            <numeric>true</numeric>
+        </field>
+        <field name="B12">
+            <info>PR or consignment code</info>
+            <name>Enter AM</name>
+            <length>2</length>
+            <position>147</position>
+            <defaultValue>PR</defaultValue>
+        </field>
+        <field name="B13">
+            <info>DI or consignment code</info>
+            <name>Normal out AM</name>
+            <length>2</length>
+            <position>149</position>
+            <defaultValue>DI</defaultValue>
+        </field>
+        <field name="B15">
+            <info>By-product type (Family product)</info>
+            <name>Enter AM</name>
+            <length>10</length>
+            <position>155</position>
+            <source>Product</source>
+            <source>productType</source>
+            <require>false</require>
+        </field>
+        <field name="B19">
+            <info>Commercial designation to display on packing</info>
+            <name>"Dangerous Mater"</name>
+            <length>50</length>
+            <position>188</position>
+            <source>Product</source>
+            <source>name</source>
+        </field>
+        <field name="B21">
+            <require>false</require>
+            <name>Active product</name>
+            <length>1</length>
+            <position>242</position>
+            <attribute>active</attribute>
+            <require>false</require>
+            <keep_warning>false</keep_warning>
+        </field>
+
+    </line>
+    <line>
+        <field name="C1">
+            <info>(= A1)</info>
+            <name>Reference Product</name>
+            <length>15</length>
+            <position>1</position>
+            <prefix>SM</prefix>
+            <source>reference</source>
+            <type>sku</type>
+        </field>
+        <field name="C2">
+            <name>Record type</name>
+            <length>3</length>
+            <position>16</position>
+            <defaultValue>MD2</defaultValue>
+        </field>
+        <field name="C3">
+            <info>(= A3) + Technical description of the supplier</info>
+            <name>Mater wording</name>
+            <length>180</length>
+            <position>19</position>
+            <method>description_3</method>
+        </field>
+    </line>
+    <line num="3" return_position="255">
+        <field name="D1">
+            <info>(= A1)</info>
+            <name>Reference Product</name>
+            <length>15</length>
+            <position>1</position>
+            <prefix>SM</prefix>
+            <source>reference</source>
+            <type>sku</type>
+        </field>
+        <field name="D2">
+            <name>Record type</name>
+            <length>3</length>
+            <position>16</position>
+            <defaultValue>MD4</defaultValue>
+        </field>
+        <field name="D3">
+            <info>(= A3) + Technical description of the supplier</info>
+            <name>Mater wording</name>
+            <length>60</length>
+            <position>19</position>
+            <method>description_4</method>
+            <require>false</require>
+            <keep_warning>false</keep_warning>
+        </field>
+    </line>
+</file>

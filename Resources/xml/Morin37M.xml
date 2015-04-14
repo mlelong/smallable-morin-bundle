@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<file>
+   <type>raw</type>
+   <interfaceName>37M</interfaceName>
+   <length>255</length>
+
+    <line>
+        <field name="A1">
+            <name>Date</name>
+            <length>8</length>
+            <position>1</position>
+            <info>AAAAMMJJ</info>
+        </field>
+        <field name="A2">
+            <name>Code Client</name>
+            <length>4</length>
+            <position>9</position>
+            <info>SMAL</info>
+        </field>
+        <field name="A3">
+            <name>Nom Client</name>
+            <length>25</length>
+            <position>13</position>
+        </field>
+        <field name="A4">
+            <name>Code Agence</name>
+            <length>3</length>
+            <position>38</position>
+        </field>
+        <field name="A5">
+            <name>sku</name>
+            <length>15</length>
+            <position>41</position>
+            <info>SMxxxxxxxx</info>
+            <type>sku</type>
+        </field>
+        <field name="A6">
+            <name>Désignation Article</name>
+            <length>40</length>
+            <position>56</position>
+        </field>
+        <field name="A7">
+            <name>merchandise_allocation</name>
+            <length>2</length>
+            <position>96</position>
+            <info>Affectation Marchandise DI = Stock DispoPR = Retour Stock DispoBK = Stock Bloqué, Quarantaine+ Autres : Dégriffé… ?Si vide : pas de stock sur la référence</info>
+        </field>
+        <field name="A8">
+            <name>Type Enregistrement</name>
+            <length>1</length>
+            <position>98</position>
+        </field>
+        <field name="A9">
+            <name>quantity</name>
+            <length>7</length>
+            <position>99</position>
+            <info>Quantité Unitaire Somme de pièce par l’affectation marchandise</info>
+        </field>
+        <field name="A10">
+            <name>Quantité Distribution</name>
+            <length>7</length>
+            <position>106</position>
+        </field>
+        <field name="A11">
+            <name>Quantité Stockage</name>
+            <length>7</length>
+            <position>113</position>
+        </field>
+        <field name="A12">
+            <name>Quantité Poids 1</name>
+            <length>10</length>
+            <position>120</position>
+        </field>
+        <field name="A13">
+            <name>Quantité Poids 2</name>
+            <length>10</length>
+            <position>130</position>
+        </field>
+        <field name="A14">
+            <name>Seuil Approvisionnement</name>
+            <length>7</length>
+            <position>140</position>
+        </field>
+        <field name="A15">
+            <name>Conditionnement Unitaire</name>
+            <length>3</length>
+            <position>147</position>
+        </field>
+        <field name="A16">
+            <name>Code EAN UC</name>
+            <length>13</length>
+            <position>150</position>
+        </field>
+        <field name="A17">
+            <name>Variante UC</name>
+            <length>2</length>
+            <position>163</position>
+        </field>
+        <field name="A18">
+            <name>Code EAN UD</name>
+            <length>13</length>
+            <position>165</position>
+        </field>
+        <field name="A19">
+            <name>Variante UD</name>
+            <length>2</length>
+            <position>178</position>
+        </field>
+        <field name="A20">
+            <name>Code EAN Palette</name>
+            <length>13</length>
+            <position>180</position>
+        </field>
+        <field name="A21">
+            <name>Variante Palette</name>
+            <length>2</length>
+            <position>193</position>
+        </field>
+        <field name="A22">
+            <name>Nb UD / Palette</name>
+            <length>6</length>
+            <position>195</position>
+        </field>
+        <field name="A23">
+            <name>Lieu fonction EAN émetteur</name>
+            <length>13</length>
+            <position>201</position>
+        </field>
+        <field name="A24">
+            <name>No chrono interface</name>
+            <length>8</length>
+            <position>214</position>
+        </field>
+        <field name="A25">
+            <name>Lot</name>
+            <length>10</length>
+            <position>222</position>
+        </field>
+        <field name="A26">
+            <name>Filler</name>
+            <length>23</length>
+            <position>232</position>
+        </field>
+        <field name="A27">
+            <name>Fin Enregistrement</name>
+            <length>2</length>
+            <position>255</position>
+        </field>
+    </line>
+
+
+
+</file>

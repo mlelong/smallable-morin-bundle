@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<contents>
+   <file_type>raw</file_type>
+   <interface_type>37G</interface_type>
+   <line num="0" return_position="255">
+      <field name="A1">
+          <name>Code Client</name>
+          <length>4</length>
+          <position>1</position>
+          <info>SMAL</info>
+      </field>
+      <field name="A2">
+          <name>Code Article</name>
+          <length>15</length>
+          <position>5</position>
+          <info>1</info>
+      </field>
+      <field name="A3">
+          <name>Code Lot</name>
+          <length>10</length>
+          <position>20</position>
+      </field>
+      <field name="A4">
+          <name>Numéro Palette</name>
+          <length>10</length>
+          <position>30</position>
+      </field>
+      <field name="A5">
+          <name>Identification Longue</name>
+          <length>20</length>
+          <position>40</position>
+      </field>
+      <field name="A6">
+          <name>Quantité Unitaire</name>
+          <length>7</length>
+          <position>60</position>
+          <info>Nb Pièces en absolue</info>
+      </field>
+      <field name="A7">
+          <name>Affectation Origine</name>
+          <length>2</length>
+          <position>67</position>
+          <info>Affectation Origine</info>
+      </field>
+      <field name="A8">
+          <name>Affectation Destination</name>
+          <length>2</length>
+          <position>69</position>
+          <info>Affectation Destination</info>
+      </field>
+      <field name="A9">
+          <name>Date Opération</name>
+          <length>8</length>
+          <position>71</position>
+          <info>AAAAMMJJ</info>
+      </field>
+      <field name="A10">
+          <name>Type Opération</name>
+          <length>2</length>
+          <position>79</position>
+          <info>RA</info>
+      </field>
+      <field name="A11">
+          <name>Code Motif</name>
+          <length>2</length>
+          <position>81</position>
+          <info>00 ou 04</info>
+      </field>
+      <field name="A12">
+          <name>No Affaire Entrée</name>
+          <length>10</length>
+          <position>83</position>
+      </field>
+      <field name="A13">
+          <name>No Commande</name>
+          <length>10</length>
+          <position>93</position>
+      </field>
+      <field name="A14">
+          <name>Code Fournisseur</name>
+          <length>12</length>
+          <position>103</position>
+      </field>
+      <field name="A15">
+          <name>Désignation Article</name>
+          <length>40</length>
+          <position>115</position>
+      </field>
+      <field name="A16">
+          <name>Nom du Client</name>
+          <length>30</length>
+          <position>155</position>
+      </field>
+      <field name="A17">
+          <name>Quantité Distribution</name>
+          <length>7</length>
+          <position>185</position>
+      </field>
+      <field name="A18">
+          <name>Quantité Unité 4</name>
+          <length>11</length>
+          <position>192</position>
+      </field>
+      <field name="A19">
+          <name>Quantité Unité 5</name>
+          <length>11</length>
+          <position>203</position>
+      </field>
+      <field name="A20">
+          <name>Lieu fonction émetteur EDI</name>
+          <length>13</length>
+          <position>214</position>
+      </field>
+      <field name="A21">
+          <name>Code agence</name>
+          <length>3</length>
+          <position>227</position>
+      </field>
+      <field name="A22">
+          <name>Nombre de reprise</name>
+          <length>2</length>
+          <position>230</position>
+      </field>
+      <field name="A23">
+          <name>No chrono interface</name>
+          <length>8</length>
+          <position>232</position>
+      </field>
+      <field name="A24">
+          <name>heure Modification</name>
+          <length>6</length>
+          <position>240</position>
+      </field>
+      <field name="A25">
+          <name>Filler</name>
+          <length>9</length>
+          <position>246</position>
+      </field>
+      <field name="A26">
+          <name>Fin Enregistrement</name>
+          <length>2</length>
+          <position>255</position>
+      </field>
+  </line>
+</contents>
