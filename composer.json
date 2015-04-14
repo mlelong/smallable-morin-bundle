@@ -17,6 +17,5 @@
         "psr-4" : {
             "Smallable\\Logistics\\MorinBundle\\" : ""
         }
-    },
-    "target-dir" : "Smallable/MorinBundle"
+    }
 }
