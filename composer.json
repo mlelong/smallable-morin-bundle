@@ -1,0 +1,30 @@
+{
+    "name" : "smallable/morin/bundle",
+    "description" : "Morin Logistic export import Bundle",
+    "type" : "symfony-bundle",
+    "authors" : [{
+        "name" : "Smallable",
+        "email" : "c.chiha@smallable.com"
+    }],
+    "keywords" : [
+        "Morin"
+    ],
+    "license" : [
+        "MIT"
+    ],
+    "require" : {
+    },
+    "autoload" : {
+        "psr-0" : {
+            "Smallable\\Logistic\\MorinBundle" : ""
+        }
+    },
+    "target-dir" : "Smallable/Logistic/MorinBundle",
+    "repositories" : [{
+    }],
+    "extra" : {
+    "branch-alias" : {
+            "dev-master" : "1-dev"
+        }
+    }
+}
