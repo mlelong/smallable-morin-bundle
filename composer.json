@@ -12,7 +12,11 @@
     "license" : [
         "MIT"
     ],
-    "require" : {
+    "require": {
+        "php": ">=5.4",
+        "symfony/symfony": "~2.3"
+    },
+    "require-dev": {
     },
     "autoload" : {
         "psr-0" : {
