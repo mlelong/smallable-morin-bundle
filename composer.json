@@ -1,5 +1,5 @@
 {
-    "name" : "smallable/morin/bundle",
+    "name" : "chekib/smallable-morin-bundle",
     "description" : "Morin Logistic export import Bundle",
     "type" : "symfony-bundle",
     "authors" : [{
