@@ -19,6 +19,7 @@ class Field
     private $info;
     private $defaultValue;
     private $prefix;
+    private $sourceType;
     private $source;
     private $destination;
     private $method;
@@ -137,6 +138,22 @@ class Field
     public function getSource()
     {
         return $this->source;
+    }
+
+    /**
+     * @param mixed $sourceType
+     */
+    public function setSourceType($sourceType)
+    {
+        $this->sourceType = $sourceType;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSourceType()
+    {
+        return $this->sourceType;
     }
 
     /**

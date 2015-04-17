@@ -13,6 +13,7 @@ class Line {
 
     private $fields;
     private $file;
+    private $type;
 
 
     /**
@@ -48,6 +49,22 @@ class Line {
         return $this->file;
     }
 
+    /**
+     * @param mixed $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
 
 
-} 
+
+}
