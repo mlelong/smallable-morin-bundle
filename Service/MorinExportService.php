@@ -100,12 +100,21 @@ class MorinExportService
                 $value = $object;
                 foreach ($oField->getSource() as $attribute) {
                     $methodName = 'get' . ucfirst($attribute);
-                    $value = $value->$methodName();
+                    if (method_exists($value, $methodName)) {
+                        $value = $value->$methodName();
+                    } else {
+                        $value = $value->$attribute;
+                    }
                 }
 
             } else {
                 $methodName = 'get' . ucfirst($oField->getSource());
-                $value = $object->$methodName();
+                if (method_exists($object, $methodName)) {
+                    $value = $object->$methodName();
+                } else {
+                    $attribute = $oField->getSource();
+                    $value = $object->$attribute;
+                }
             }
         } elseif ($oField->getDefaultValue())
             $value = $oField->getDefaultValue();
@@ -125,4 +134,4 @@ class MorinExportService
 
         return array('field' => $oField, 'value' => $value);
     }
-} 
+}
