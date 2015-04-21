@@ -17,6 +17,7 @@ class TextReader
     {
         $handle = fopen($filePath, "r");
         $lineIndex = 0;
+        $aReturn = array();
         while (($textLine = fgets($handle)) !== false) {
 
             if (count($fileMap->getLines()))
@@ -26,7 +27,7 @@ class TextReader
                 //@todo
             }
             foreach ($oLine->getFields() as $oField) {
-                $value = substr($textLine,$oField->getPosition()-1,$oField->getLength());
+                $value = substr($textLine, $oField->getPosition()-1, $oField->getLength());
                 if($oField->getType() == 'sku')
                     $value = $this->MorinToSkuConvert($value);
                 $value = trim($value);
@@ -41,8 +42,8 @@ class TextReader
     private function MorinToSkuConvert($sku)
     {
         $sku = trim($sku);
-        $sku = substr_replace($sku,'',0,2);
+        $sku = substr($sku, 2);
         return str_replace('/', '-', $sku);
     }
 
-} 
+}
