@@ -41,7 +41,7 @@ class MorinExportService
         $this->terminate($data);
     }
 
-    protected function init()
+    public function init()
     {
         $fileLocator = new FileLocator($this->oContainer->get('kernel'));
         $path = $fileLocator->locate('@MorinBundle/Resources/xml/Morin' . $this->fileName . '.xml');
@@ -58,7 +58,7 @@ class MorinExportService
     }
 
 
-    protected function writeData($aData)
+    public function writeData($aData)
     {
         foreach ($aData as $value) {
             $this->oWriter->write($value);
@@ -82,7 +82,7 @@ class MorinExportService
         }
     }
 
-    protected function transformField($object, $oField)
+    public function transformField($object, $oField)
     {
         $value = '';
 
