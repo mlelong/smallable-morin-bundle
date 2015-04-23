@@ -14,7 +14,8 @@ interface MorinExportInterface {
     public function process();
     public function init();
     public function fetchData();
-    public function transformData($data);
-    public function writeData($data);
+    public function transformData($aData);
+    public function writeData($aData);
+    public function terminate($aData, $aFile);
 
 }

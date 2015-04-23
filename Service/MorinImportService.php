@@ -24,10 +24,13 @@ class MorinImportService
     protected $fileName;
     protected $fileMap;
     protected $oReader;
+    protected $copyOnExchangeDirectory;
 
     function __construct($Container)
     {
         $this->oContainer = $Container;
+        $this->copyOnExchangeDirectory = false;
+
     }
 
     public function process() {
@@ -37,7 +40,7 @@ class MorinImportService
         $aData = $this->fetchData($aFiles);
         $this->updateData($aData);
         $this->moveFiles($aFiles);
-        $this->terminate();
+        $this->terminate($aData, $aFiles);
     }
 
     public function init() {
@@ -72,20 +75,29 @@ class MorinImportService
 
     public function moveFiles($aFiles) {
         $fs = new Filesystem();
-        $directory = $this->oContainer->get('kernel')->getRootDir() . $this->oContainer->getParameter('morin_directories')['process'] . DIRECTORY_SEPARATOR . date('Y') .
+        $archiveDirectory = $this->oContainer->get('kernel')->getRootDir() . $this->oContainer->getParameter('morin_directories')['process'] . DIRECTORY_SEPARATOR . date('Y') .
             DIRECTORY_SEPARATOR . date('M') . DIRECTORY_SEPARATOR . $this->fileMap->getInterfaceName();
-        if (!$fs->exists($directory)) {
-            $fs->mkdir($directory);
+        if (!$fs->exists($archiveDirectory)) {
+            $fs->mkdir($archiveDirectory);
         }
+
+        $exchangeDirectory = $this->oContainer->get('kernel')->getRootDir() . $this->oContainer->getParameter('morin_directories')['exchange'];
+        if (!$fs->exists($exchangeDirectory)) {
+            $fs->mkdir($exchangeDirectory);
+        }
+
         foreach ($aFiles as $fileName => $filePath) {
             if ($fs->exists($filePath)) {
-                $fs->copy($filePath, $directory . DIRECTORY_SEPARATOR . $fileName);
+                $fs->copy($filePath, $archiveDirectory . DIRECTORY_SEPARATOR . $fileName);
+                if ($this->copyOnExchangeDirectory) {
+                    $fs->copy($filePath, $exchangeDirectory . DIRECTORY_SEPARATOR . $fileName);
+                }
                 $fs->remove($filePath);
             }
         }
     }
 
-    public function terminate() {
+    public function terminate($aData, $aFiles) {
 
     }
 }
