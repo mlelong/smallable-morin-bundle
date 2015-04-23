@@ -17,6 +17,6 @@ interface MorinImportInterface {
     public function fetchData($aFiles);
     public function updateData($aData);
     public function moveFiles($aData);
-    public function terminate();
+    public function terminate($aData, $aFiles);
 
 }

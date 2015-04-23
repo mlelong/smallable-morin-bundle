@@ -29,6 +29,7 @@ class MorinExtension extends Extension
             array(
                 'process' => $config['directories']['process'],
                 'tmp' => $config['directories']['tmp'],
+                'exchange' => $config['directories']['exchange'],
             )
         );
 

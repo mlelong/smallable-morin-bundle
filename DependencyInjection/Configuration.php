@@ -25,6 +25,7 @@ class Configuration implements ConfigurationInterface
             ->children()
             ->scalarNode('process')->cannotBeEmpty()->end()
             ->scalarNode('tmp')->cannotBeEmpty()->end()
+            ->scalarNode('exchange')->cannotBeEmpty()->end()
             ->end()
             ->end()
             ->end();
