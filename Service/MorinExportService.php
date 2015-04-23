@@ -1,9 +1,9 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: c.chiha
- * Date: 19/03/15
- * Time: 14:50
+ * User: m.lelong
+ * Date: 21/04/15
+ * Time: 17:50
  */
 
 namespace Smallable\Logistics\MorinBundle\Service;
@@ -35,10 +35,10 @@ class MorinExportService
     public function process()
     {
         $this->init();
-        $data = $this->fetchData();
-        $aTransformedData = $this->transformData($data);
-        $this->writeData($aTransformedData);
-        $this->terminate($data);
+        $aData = $this->fetchData();
+        $aTransformedData = $this->transformData($aData);
+        $aFile = $this->writeData($aTransformedData);
+        $this->terminate($aData, $aFile);
     }
 
     public function init()
