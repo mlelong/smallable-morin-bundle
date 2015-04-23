@@ -11,9 +11,10 @@ namespace Smallable\Logistics\MorinBundle\Service;
 
 interface MorinExportInterface {
 
+    public function process();
     public function init();
     public function fetchData();
     public function transformData($data);
     public function writeData($data);
 
-} 
+}

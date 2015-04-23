@@ -1,9 +1,9 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: c.chiha
- * Date: 19/03/15
- * Time: 14:50
+ * User: m.lelong
+ * Date: 21/04/15
+ * Time: 17:50
  */
 
 namespace Smallable\Logistics\MorinBundle\Service;
@@ -35,13 +35,13 @@ class MorinExportService
     public function process()
     {
         $this->init();
-        $data = $this->fetchData();
-        $aTransformedData = $this->transformData($data);
-        $this->writeData($aTransformedData);
-        $this->terminate($data);
+        $aData = $this->fetchData();
+        $aTransformedData = $this->transformData($aData);
+        $aFile = $this->writeData($aTransformedData);
+        $this->terminate($aData, $aFile);
     }
 
-    protected function init()
+    public function init()
     {
         $fileLocator = new FileLocator($this->oContainer->get('kernel'));
         $path = $fileLocator->locate('@MorinBundle/Resources/xml/Morin' . $this->fileName . '.xml');
@@ -58,7 +58,7 @@ class MorinExportService
     }
 
 
-    protected function writeData($aData)
+    public function writeData($aData)
     {
         foreach ($aData as $value) {
             $this->oWriter->write($value);
@@ -82,7 +82,7 @@ class MorinExportService
         }
     }
 
-    protected function transformField($object, $oField)
+    public function transformField($object, $oField)
     {
         $value = '';
 
