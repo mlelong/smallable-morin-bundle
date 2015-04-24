@@ -11,6 +11,7 @@ namespace Smallable\Logistics\MorinBundle\Service;
 
 use Smallable\Logistics\MorinBundle\Resources\Normalizer\MorinMapNormalizer;
 use Smallable\Logistics\MorinBundle\Reader\TextReader;
+use Smallable\Logistics\MorinBundle\Reader\XmlReader;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpKernel\Config\FileLocator;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
@@ -56,7 +57,7 @@ class MorinImportService
         if ($this->fileMap->getType() == 'raw') {
             $this->oReader = new TextReader($this->oContainer, $this->fileMap);
         } else {
-            //$this->oReader = new XmlReader($this->oContainer, $this->fileMap);
+            $this->oReader = new XmlReader();
         }
     }
 
