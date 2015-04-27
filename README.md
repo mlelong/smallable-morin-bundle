@@ -226,10 +226,35 @@ Xml pattern file
 =================
 
 Each service use xml pattern file to describe the morin files. Morin files are either raw text or xml.
+They are located in `ressources/xml`.
+This pattern matchs the following scheme :
 
-About file : <type> can be raw or xml
+```
+<file>
+        <type></type>
+        <interfaceName></interfaceName>
+        <length></length>
+        <line> (multiple)
+                <type></type>
+                <field> (multiple)
+                    <name></name>
+                    <length></length>
+                    <position></position>
+                    <info></info>                
+                </field> 
+        </line>
+</file>
+```
 
+About `<file>` : `<type>` can be raw or xml
 
+About `<line>` : optional `<type>` allow to describe/generate a file with header, footer ...
+
+About field : `<name>`, `<length>`, `<position>` and `<info>`  should match the morin documentation.
+`<prefix>` : add a prefix to the value
+`<source>` : indicate the the getters to use to get data from object sent to `transformField` method. Multiple <ource> is possible.
+`<defaultValue>` : used to fill with a default value instead of getting by `source`
+`<type>` : possible values :  `sku` or `type`
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -257,9 +282,19 @@ About file : <type> can be raw or xml
         </field>
         
  ...
+ ```
  
  ```
-
+        <field name="D3">
+            <name>Nom Destinataire</name>
+            <length>30</length>
+            <position>12</position>
+            <info>NOM Prénom</info>
+            <source>deliveryAddress</source>
+            <source>firstnameLastname</source>
+        </field>
+ ```        
+        
 
 
 
