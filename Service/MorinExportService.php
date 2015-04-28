@@ -12,6 +12,7 @@ namespace Smallable\Logistics\MorinBundle\Service;
 use Smallable\Logistics\MorinBundle\Resources\Normalizer\MorinMapNormalizer;
 use Smallable\Logistics\MorinBundle\Serializer\MorinMapDecoder;
 use Smallable\Logistics\MorinBundle\Writer\TextWriter;
+use Smallable\Logistics\MorinBundle\Writer\XmlWriter;
 use Symfony\Component\DomCrawler\Crawler;
 use Symfony\Component\HttpKernel\Config\FileLocator;
 use Symfony\Component\Serializer\Encoder\JsonDecode;
@@ -54,6 +55,9 @@ class MorinExportService
         if ($this->fileMap->getType() == 'raw') {
             $this->oWriter = new TextWriter($this->oContainer, $this->fileMap);
         }
+        if ($this->fileMap->getType() == 'xml') {
+            $this->oWriter = new XmlWriter($this->oContainer, $this->fileMap);
+        }
 
     }
 
@@ -66,7 +70,7 @@ class MorinExportService
         return $this->oWriter->flush();
     }
 
-    public function moveFiles($aFiles)
+    public function moveFiles($aFile)
     {
         $fs = new Filesystem();
         $directory = $this->oContainer->get('kernel')->getRootDir() . $this->oContainer->getParameter('morin_directories')['process'] . DIRECTORY_SEPARATOR . date('Y') .

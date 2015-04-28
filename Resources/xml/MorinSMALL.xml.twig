@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<orders>
+    {% for picking in objects %}
+        <order>
+            <header>
+                <client>SMAL</client>
+                <operator>SMALLABLE</operator>
+                <sign>01</sign>
+                <lot/>
+                <nb_boxes/>
+                <num><![CDATA[SE{{picking.reference}}]]></num>
+                <date>{{ picking.created |date('Y-m-d H:i:s') }}</date>
+                <shipping_date />
+                <invoice_num>{{ picking.order.id }}</invoice_num>
+                <customer>
+                    <corp_name><![CDATA[{{ picking.billingAddress.company }}]]></corp_name>
+                    <name><![CDATA[{{ picking.billingAddress.lastname }}]]></name>
+                    <firstname><![CDATA[{{ picking.billingAddress.firstname }}]]></firstname>
+                    <num><![CDATA[SE{{ picking.order.id }}]]></num>
+                    <num_ext><![CDATA[SE{{ picking.customer.id }}]]></num_ext>
+                    <shipping_adress>
+                        <corp_name><![CDATA[{{ picking.deliveryAddress.company }}]]></corp_name>
+                        <name><![CDATA[{{ picking.deliveryAddress.lastname }}]]></name>
+                        <firstname><![CDATA[{{ picking.deliveryAddress.firstname }}]]></firstname>
+                        <adr1><![CDATA[{{ picking.deliveryAddress.street1 }}]]></adr1>
+                        <adr2><![CDATA[{{ picking.deliveryAddress.street2 }}]]></adr2>
+                        <zip><![CDATA[{{ picking.deliveryAddress.postcode }}]]></zip>
+                        <city><![CDATA[{{ picking.deliveryAddress.city }}]]></city>
+                        <country><![CDATA[{{ picking.deliveryAddress.country.isoCode }}]]></country>
+                        <state><![CDATA[{{ picking.deliveryAddress.state }}]]></state>
+                        <phone><![CDATA[{{ picking.deliveryAddress.phone }}]]></phone>
+                        <mobile><![CDATA[{{ picking.deliveryAddress.cellphone }}]]></mobile>
+                        <email><![CDATA[{{ picking.customer.email }}]]></email>
+                    </shipping_adress>
+                    {% if picking.order.deliveryMode.id == 3 %}
+                        <relay_info>
+                            <name><![CDATA[{{ picking.deliveryAddress.company }}]]></name>
+                            <adr1><![CDATA[{{ picking.deliveryAddress.street1 }}]]></adr1>
+                            <adr2><![CDATA[{{ picking.deliveryAddress.street2 }}]]></adr2>
+                            <zip><![CDATA[{{ picking.deliveryAddress.postcode }}]]></zip>
+                            <city><![CDATA[{{ picking.deliveryAddress.city }}]]></city>
+                            <country><![CDATA[{{ picking.deliveryAddress.country.isoCode }}]]></country>
+                            <id><![CDATA[{{ picking.deliveryAddress.relayStore }}]]></id>
+                            <inf1><CDATA/></inf1>
+                            <inf2><CDATA/></inf2>
+                            <inf3><CDATA/></inf3>
+                        </relay_info>
+                    {% endif %}
+                </customer>
+            </header>
+
+            <articles count="{{ picking.basket.lines | length }}">
+                {% for line in picking.basket.lines %}
+                    <line>
+                        <type>P</type>
+                        <ref><![CDATA[SM{{ line.sku }}]]></ref>
+                        <ean13><![CDATA[SM{{ line.sku }}]]></ean13>
+                        <initial_qty>{{ line.quantity }}</initial_qty>
+                        <current_qty>{{ line.quantity }}</current_qty>
+                        <lib><![CDATA[{{ line.productName }}]]></lib>
+                        <price>{{ line.unitSellingAmount }}</price>
+                        <tax_rate>FR</tax_rate>
+                        <supplier>{{ line.productBrand }}</supplier>
+                        <custom_number><![CDATA[]]></custom_number>
+                        <article_country>FR</article_country>
+                        <article_type/>
+                    </line>
+                {% endfor %}
+            </articles>
+            <footer>
+                <total_order>{{ picking.totalAmount }}</total_order>
+                <notification>{{ picking.order.carrier.notification }}</notification>
+                <shipping_mode>{{ picking.order.carrier.code }}</shipping_mode>
+                <shipping_service>{{ picking.order.carrier.service }}</shipping_service>
+                <shipping_price>0</shipping_price>
+                <shipping_tax_rate>FR</shipping_tax_rate>
+                <sending_category>1</sending_category>
+                <total_invoice />
+                <insurance>{{ picking.totalAmount }}</insurance>
+                <currency>{{ picking.currency.isoCode }}</currency>
+                <language>{{ picking.customer.language.locale }}</language>
+                <cancel>0</cancel>
+                <service_code />
+                <service_type />
+                <service_message><CDATA /></service_message>
+            </footer>
+        </order>
+    {% endfor %}
+</orders>
