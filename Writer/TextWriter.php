@@ -46,18 +46,31 @@ class TextWriter
             $this->iLineIndex = $aData['line'];
             $this->text[] = $line;
         }
-        if($aData['field']->getName() == 'lineNumber'){
+
+        if($aData['field']->getName() == 'lineNumber') {
             $aData['value'] = sprintf('%0' .$aData['field']->getLength(). 's', $this->iLineIndex + 1);
         }
 
-        $aData['value'] = strtoupper($aData['value']);
+        if (is_a($aData['value'], 'DateTime')) {
 
-        if ($aData['field']->getPrefix())
+            if ($aData['field']->getType() == 'date') {
+                $aData['value'] = $aData['value']->format('YMD');
+            }
+            if ($aData['field']->getType() == 'hour') {
+                $aData['value'] = $aData['value']->format('His');
+            }
+        } else {
+            $aData['value'] = strtoupper($aData['value']);
+
+        }
+
+        if ($aData['field']->getPrefix()) {
             $aData['value'] = $aData['field']->getPrefix() . $aData['value'];
+        }
 
-        if($aData['field']->getType() == 'sku')
+        if ($aData['field']->getType() == 'sku') {
             $aData['value'] = $this->SmlbToMorinSkuConvert($aData['value']);
-        else{
+        } else {
             $aData['value'] = $this->stripPunctuation($aData['value']);
         }
 
@@ -148,4 +161,4 @@ class TextWriter
             ' ',
             $string);
     }
-} 
+}
