@@ -64,7 +64,7 @@ class TextWriter
 
         }
 
-        if ($aData['field']->getPrefix()) {
+        if ($aData['field']->getPrefix() && strlen($aData['value'])) {
             $aData['value'] = $aData['field']->getPrefix() . $aData['value'];
         }
 
